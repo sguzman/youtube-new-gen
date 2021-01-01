@@ -2,6 +2,6 @@ version: "3.9"
 
 services:
   db:
-    image: guzmansalv/postgres_youtube
+    build: ./db
     ports:
     - "5432:5432"
