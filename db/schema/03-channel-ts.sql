@@ -1,9 +1,11 @@
+\c youtube;
+
 create table stats
 (
 	time TIMESTAMPTZ default CURRENT_TIMESTAMP not null,
 	id bigserial not null
 		constraint stats_channels_id_fk
-			references youtube.timeseries.channels,
+			references youtube.data.channels,
 	subs int,
 	vids int,
 	views int

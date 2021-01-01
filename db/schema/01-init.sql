@@ -2,5 +2,7 @@ CREATE USER admin;
 CREATE DATABASE youtube;
 GRANT ALL PRIVILEGES ON DATABASE youtube TO admin;
 
+\c youtube;
+
 CREATE SCHEMA data;
 CREATE SCHEMA timeseries;

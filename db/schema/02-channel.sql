@@ -1,3 +1,5 @@
+\c youtube;
+
 create table youtube.data.channels
 (
 	id bigserial not null,
