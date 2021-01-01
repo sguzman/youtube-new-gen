@@ -3,5 +3,5 @@ version: "3.9"
 services:
   db:
     image: guzmansalv/postgres_youtube
-    environment:
-      - DEBUG
+    ports:
+    - "5432:5432"
