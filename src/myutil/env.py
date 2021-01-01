@@ -32,3 +32,23 @@ def get_env_optional(env: str) -> typing.Optional[str]:
         return None
     else:
         return env_val
+
+
+def get_db_user() -> str:
+    return get_env_no_empty('POSTGRES_USERNAME')
+
+
+def get_db_pass() -> str:
+    return get_env_no_empty('POSTGRES_PASSWORD')
+
+
+def get_db_name() -> str:
+    return get_env_no_empty('POSTGRES_DB')
+
+
+def get_db_host() -> str:
+    return get_env_no_empty('POSTGRES_HOST')
+
+
+def get_db_port() -> str:
+    return get_env_no_empty('POSTGRES_PORT')
