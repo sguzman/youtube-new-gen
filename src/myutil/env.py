@@ -53,3 +53,7 @@ def get_db_host() -> str:
 
 def get_db_port() -> str:
     return get_env_no_empty('POSTGRES_PORT')
+
+
+def get_db_table() -> str:
+    return get_env_no_empty('POSTGRES_TABLE')
