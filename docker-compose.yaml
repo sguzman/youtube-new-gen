@@ -3,5 +3,12 @@ version: "3.9"
 services:
   db:
     build: ./db
-    ports:
-    - "5432:5432"
+    image: guzmansalv/postgres_youtube
+  initchans:
+    build:
+      context: ./src/initchans
+      args:
+
+    image: guzmansalv/initchans_youtube
+    depends_on:
+      - "db"
