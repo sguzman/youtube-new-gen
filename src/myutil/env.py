@@ -16,8 +16,9 @@ def get_env_no_empty(env: str) -> str:
     env_val: str = os.environ[env]
 
     if len(env_val) == 0:
-        logging.error(f'No value found for {env}')
-        raise LookupError
+        err_msg: str = f'No value found for {env}'
+        logging.error(err_msg)
+        raise LookupError(err_msg)
     else:
         logging.info(f'Found value "{env_val}"')
         return env_val
