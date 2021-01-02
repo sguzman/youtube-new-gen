@@ -1,6 +1,8 @@
 CREATE USER admin;
 CREATE DATABASE youtube;
 GRANT ALL PRIVILEGES ON DATABASE youtube TO admin;
+ALTER USER admin WITH SUPERUSER;
+ALTER USER admin WITH PASSWORD 'admin';
 
 \c youtube;
 
