@@ -1,6 +1,5 @@
 import csv
 import logging
-import os
 import psycopg2
 
 import myutil
@@ -17,16 +16,12 @@ logging.debug(f'Opening {csv_file_name}')
 csv_reader = csv.reader(csv_file_name)
 logging.debug(f'Reading {csv_file_name}')
 
-user_env = 'POSTGRES_USER'
-user = os.environ['POSTGRES_USER']
+user = myutil.env.get_db_user()
+host = myutil.env.get_db_host()
+port = myutil.env.get_db_port()
+db = myutil.env.get_db_name()
 
-password = os.environ['POSTGRES_PASSWORD']
-host = os.environ['POSTGRES_HOST']
-port = os.environ['POSTGRES_PORT']
-db = os.environ['POSTGRES_DB']
-
-conn = psycopg2.connect(user=user, password=password, host=host, port=port, database=db)
-
+conn = psycopg2.connect(user=user, host=host, port=port, database=db)
 cursor = conn.cursor()
 
 for row in csv_reader:
