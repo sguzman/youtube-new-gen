@@ -2,13 +2,17 @@ version: "3.9"
 
 services:
   db:
-    build: ./db
-    image: guzmansalv/postgres_youtube
-  initchans:
+    environment:
+      POSTGRES_USERNAME: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: youtube
     build:
-      context: ./src/initchans
-      args:
-
-    image: guzmansalv/initchans_youtube
-    depends_on:
-      - "db"
+      context: ./db
+    image: guzmansalv/postgres_youtube
+    ports:
+      - 5432:5432
+    hostname: db
+    networks:
+      - db_net
+networks:
+  db_net:
